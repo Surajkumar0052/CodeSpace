@@ -1,0 +1,58 @@
+<template>
+	<lightning-card>
+		<!-- <div class="slds-p-around_medium lgc-bg">
+			<lightning-button-icon icon-name="utility:edit" variant="bare" alternative-text="edit" title="edit">
+			</lightning-button-icon>
+
+		</div> -->
+
+
+		<div class="slds-form__item" role="listitem">
+			<div
+				class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_horizontal slds-hint-parent">
+				<span class="slds-form-element__label">Shipping Address</span>
+				<div class="slds-form-element__control">
+					<div class="slds-form-element__static">
+						<a href="#">312 Constitution Place
+							<br/>Austin, TX 78767
+							<br/>USA
+							<br/>
+</a>
+					</div>
+					<!-- <div class="slds-p-around_medium lgc-bg"> -->
+					<lightning-button-icon icon-name="utility:edit" variant="bare" alternative-text="edit" title="edit">
+					</lightning-button-icon>
+
+					<!-- </div> -->
+				</div>
+			</div>
+		</div>
+
+		<lightning-accordion active-section-name="B">
+			<lightning-accordion-section name="A" label="Accordion Title A"
+				class="slds-form-element_horizontal allow-multiple-sections-open">
+				<div class="slds-p-horizontal_small">
+					<lightning-layout multiple-rows>
+						<lightning-layout-item size="12" >
+							<lightning-input label="Test 1" value="" read-only>
+							</lightning-input>
+						</lightning-layout-item>
+                        <lightning-layout-item size="12" >
+							<lightning-input label="Test 2" value="" read-only>
+							</lightning-input>
+						</lightning-layout-item>
+                        <lightning-layout-item size="12" >
+							<lightning-input label="Test 3" value="" read-only>
+							</lightning-input>
+						</lightning-layout-item>
+                        <lightning-layout-item size="12" >
+							<lightning-input label="Test 4" value="" read-only>
+							</lightning-input>
+						</lightning-layout-item>
+					</lightning-layout>
+				</div>
+			</lightning-accordion-section>
+
+		</lightning-accordion>
+	</lightning-card>
+</template>

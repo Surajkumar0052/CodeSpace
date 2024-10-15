@@ -1,0 +1,69 @@
+<template>
+      <lightning-card>
+            <lightning-layout horizontal-align="center">
+                  <lightning-layout-item padding="horizontal-small">
+                        <lightning-combobox name="Car Types" label="Car Types" variant="label-hidden"
+                              onchange={handleCarTypeChange} options={carTypes}>
+                        </lightning-combobox>
+                  </lightning-layout-item>
+
+                  <!-- modal start -->
+                  <template if:true={isShowModal}>
+
+                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                              aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                              <div class="slds-modal__container">
+                                    <!-- modal header start -->
+                                    <header class="slds-modal__header">
+                                          <button
+                                                class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                                title="Close" onclick={hideModalBox}>
+                                                <lightning-icon icon-name="utility:close" alternative-text="close"
+                                                      variant="inverse" size="small"></lightning-icon>
+                                                <span class="slds-assistive-text">Close</span>
+                                          </button>
+                                          <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                                                Rent Car</h2>
+                                    </header>
+
+                                    <!-- modal body start -->
+                                    <div class="slds-modal__content slds-p-around_medium">
+                                          <div class="slds-m-around_medium">
+                                                <lightning-input label="Rent Start Date" placeholder="Enter Start Date"
+                                                      required type="Date">
+                                                </lightning-input>
+                                          </div>
+
+                                          <div class="slds-m-around_medium">
+                                                <lightning-input label="Rent End Date" placeholder="Enter End Date"
+                                                      required type="Date">
+                                                </lightning-input>
+                                          </div>
+
+                                          <div class="slds-m-around_medium">
+                                                <lightning-input label="Car" placeholder="Select Car" required
+                                                      value={carLookup}>
+                                                </lightning-input>
+                                          </div>
+                                    </div>
+
+                                    <footer class="slds-modal__footer">
+                                          <button class="slds-button slds-button_neutral"
+                                                onclick={hideModalBox}>Cancel</button>
+                                          <button class="slds-button slds-button_neutral"
+                                                onclick={hideModalBox}>Next</button>
+                                    </footer>
+
+                              </div>
+
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                  </template>
+                  <!-- modal end -->
+
+                  <lightning-layout-item padding="horizontal-small">
+                        <lightning-button label="Rent Car" onclick={rentCarHandler}></lightning-button>
+                  </lightning-layout-item>
+            </lightning-layout>
+      </lightning-card>
+</template>
