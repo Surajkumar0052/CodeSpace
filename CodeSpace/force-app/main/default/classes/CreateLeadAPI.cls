@@ -1,0 +1,25 @@
+@RestResource(urlMapping='/createLead/*')
+
+global class CreateLeadAPI {
+    @HttpPost
+    global static String createLeadRecord(String name, String company, String phone, String leadStatus){
+        if(String.isNotBlank(name) && String.isNotBlank(company) && String.isNotBlank(leadStatus) && String.isNotBlank(phone)){
+            List<Lead> leadList = [SELECT Id, Name, Phone FROM Lead WHERE Phone =: phone];
+            System.debug('leadList '+leadList);
+            Lead leadToInsert;
+            if(leadList.isEmpty()){                
+                leadToInsert = new Lead(LastName=name, Company=company, Status=leadStatus, Phone=phone);
+                System.debug('leadToInsert '+leadToInsert);
+                insert leadToInsert;
+                return leadToInsert.Id;
+            }
+            else{
+                return 'Lead is already created with this phone number!!';
+            }
+            
+        }
+        else{
+            return 'Request parameters error!!';
+        }
+    }
+}
